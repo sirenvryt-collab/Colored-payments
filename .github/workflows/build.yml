@@ -20,11 +20,12 @@ jobs:
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: 8.10
+
+      - name: Make gradlew executable
+        run: chmod +x gradlew
 
       - name: Build mod
-        run: gradle build --stacktrace
+        run: ./gradlew build --stacktrace
 
       - name: Upload built jar
         uses: actions/upload-artifact@v4
